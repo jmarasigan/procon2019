@@ -1,0 +1,159 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Tabs - Tabs at bottom</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="js/jquery.ui.tabs.js"></script>
+  <script src="js/jquery.ui.core.js"></script>
+  <script src="js/jquery.ui.widget.js"></script>
+  <link rel="stylesheet" href="style/demos.css" />
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+ 
+    // fix the classes
+    $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+      .removeClass( "ui-corner-all ui-corner-top" )
+      .addClass( "ui-corner-bottom" );
+ 
+    // move the nav to the bottom
+    $( ".tabs-bottom .ui-tabs-nav" ).appendTo( ".tabs-bottom" );
+  });
+  </script>
+  <style>	
+  /* force a height so the tabs don't jump as content height changes */
+	#tabs .tabs-spacer { float: left; height: 200px; }
+	.tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+	.tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+	.tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
+  </style>
+</head>
+<body>
+ 
+<div id="tabs" class="tabs-bottom">
+  <ul>
+    <li><a href="#tabs-1">Day 1</a></li>
+    <li><a href="#tabs-2">Day 2</a></li>
+    <li><a href="#tabs-3">Day 3</a></li>
+  </ul>
+  <div class="tabs-spacer"></div>
+  <div id="tabs-1">
+    <p><table>
+ 		<tr>
+ 			<td>TIME</td>
+ 			<td>PROGRAM</td>
+ 		</tr>
+ 		<tr>
+ 			<td>6:00am - 2:00pm</td>
+ 			<td><b>ARRIVAL OF PARTICIPANTS<b></b><br/>Registration<br/>Distribution of kits<br/>Check-in</td>
+ 		</tr> 
+ 		<tr>
+ 			<td>1:00pm - 2:00pm</td>
+ 			<td>Leaders' Meeting <br/>Procon 2015 Bidding</td>
+ 		</tr> 
+ 		<tr>
+ 			<td>2:00pm - 4:00pm</td>
+ 			<td><b>WELCOME FIESTA</b>
+ 			<br/>Meet / Greet<br/>Acoustic Numbers<br/>
+ 			PM Snack<br/>House Rules<br/>Program Reminders<br/>
+ 			Rotaract Festival Preparation<br/>Icebreakers</td>
+ 		</tr>
+ 		<tr>
+ 			<td>4:00pm - 7:00pm</td>
+ 			<td>FREE TIME</td>
+ 		</tr>
+ 		<tr>
+ 			<td>7:00pm - 12:00pm</td>
+ 			<td><b>PROCON 2014 OPENING NIGHT</b>
+ 			<br/>Dinner<br/>Call to Order<br/>
+ 			Doxology<br/>National Anthem<br/>Welcome Message<br/>
+ 			Parade of Different District<br/>Intro of Guest Speaker
+ 			<br/>PDRR's Dance Number<br/>Glee Presentation<br/>Fellowship</td>
+ 		</tr>    
+    </table></p>
+  </div>
+  <div id="tabs-2">
+    <p><table>
+ 		<tr>
+ 			<td>TIME</td>
+ 			<td>PROGRAM</td>
+ 		</tr>
+ 		<tr>
+ 			<td>6:00am - 8:00am</td>
+ 			<td><b>Breakfast<b></b></td>
+ 		</tr> 
+ 		<tr>
+ 			<td>8:00am - 10:30am</td>
+ 			<td>Opening Ceremonies<br/>District Report w/ AM Snacks (10am)</td>
+ 		</tr> 
+ 		<tr>
+ 			<td>10:30am - 12:00nn</td>
+ 			<td><b>1st Plenary Session</b>
+ 			<br/>Awarding of Token & Certificate</td>
+ 		</tr>
+ 		<tr>
+ 			<td>12:00nn - 1:00pm</td>
+ 			<td>LUNCH</td>
+ 		</tr>
+ 		<tr>
+ 			<td>1:00pm - 1:30pm</td>
+ 			<td>Group Dynamics</td>
+ 		</tr>  
+ 		<tr>
+ 			<td>1:30pm - 3:00pm</td>
+ 			<td>2nd Plenary Session<br/>
+ 			Awarding of Token & Certificate</td>
+ 		</tr> 
+ 		<tr>
+ 			<td>3:00pm - 4:00pm</td>
+ 			<td>PM Snacks<br/>MDIO Announcements & State of the MDIO Address
+ 			</td>
+ 		</tr> 
+ 		<tr>
+ 			<td>4:00pm - 5:00pm</td>
+ 			<td>Rotaract Festival
+ 			</td>
+ 		</tr> 
+ 		<tr>
+ 			<td>5:00pm - 7:00pm</td>
+ 			<td><b>LUAU FELLOWSHIP NIGHT</b><br/>
+ 			Dinner<br/>Awarding of Certificates ; Special Awards<br/>Games & Photobooth<br/>
+ 			Special Numbers<br/>Fellowship<br/>Adjournment
+ 			</td>
+ 		</tr>  
+    </table></p>
+  </div>
+  <div id="tabs-3">
+    <p>
+    <table>
+    <tr>
+ 			<td>TIME</td>
+ 			<td>PROGRAM</td>
+ 		</tr>
+    <tr>
+ 			<td>7:00am - 9:00am</td>
+ 			<td>Breakfast
+ 	</td></tr>		
+ 	<tr>
+ 			</td>
+ 			<td>9:00am - 11:00am</td>
+ 			<td>Procon Group Photo<br/>Wipeout Contest<br/>Closing Remarks
+ 			</td>
+ 			</tr>
+ 			<tr>
+ 			<td>12:00nn</td>
+ 			<td>Adjournment<br/>Check-out
+ 			</td>
+ 		</tr>    
+    </table>
+    </p>
+  </div>
+</div>
+ 
+ 
+</body>
+</html>

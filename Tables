@@ -1,0 +1,40 @@
+login_attempts
+user_id
+time
+
+
+members
+
+
+registration
+
+
+
+
+Salt: 2bf191668b11095847decf3c396818b4ef42b1b00313bd629250b5b76f883164a48778546b0f58c1d62ab443b2c8209e01892a1bfe1164202f52e6fe5bd2777c
+PWD:  79da194e1df648bb659ab00c3387fc75d4dd6e81c570892c69619327dc2a4e8d0e104896e07e04816633f41676bde81a9ed0619e2fd4d93847e9c2b7b1c78844
+
+
+
+
+control#: 234PRO890CON2019
+SOMETHING WRONG WITH ASSESSMENT SQL.
+ERROR: SOMETHING WRONG WITH THE ASSESSMENT
+
+
+select regstatus,comment,approver,controlno from registration;
+regstatus=?,comment=?,approver=?,controlno=?
+
+
+comment
+approver
+controlno
+
+
+about-cwc
+contacts
+home
+program
+registration
+
+width="2200" height="550"
