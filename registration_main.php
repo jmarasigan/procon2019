@@ -137,7 +137,7 @@ li {
 			<p><b>Step 2: </b> Register online on the link below (<a href="www.procon2019.com">www.procon2019.com</a>)</p>
 			<p>Click on registration tab.</p>
 			<br/>
-			<p><b>Step 3: </b> Fill up the registration form. </p>
+			<p><b>Step 3: </b> Fill out the registration form. </p>
 			<p><i><b>Note:</b> Please provide all the information required.</i></p>
 			<p><li>Valid email</li></p>
 			<p><li>Payment Transaction Code (remove space)<a href="" data-geo>Sample</a></li></p>

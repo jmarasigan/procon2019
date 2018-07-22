@@ -66,7 +66,7 @@ body {font-family: "Lato", sans-serif}
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">Pilipinas Rotaract Convention 2019</h2>
-    <p class="w3-opacity"><i>Legaspi Albay, February 22-26, 2019</i></p>
+    <p class="w3-opacity"><i>Legaspi Albay, February 22-24, 2019</i></p>
    
   </div>
 
@@ -90,9 +90,9 @@ body {font-family: "Lato", sans-serif}
         <li class="w3-padding"><?php include('registration_main.php'); ?></li>
       </ul>
 
-      <p class="w3-opacity w3-left"><i><b>Note:<b> REGISTRATION IS NON-REFUNDABLE,PAYMENT REGISTRATION ONLY WILL NOT GUARANTEE YOUR SLOT</i></p><br>
-      <p class="w3-opacity w3-left"><i>*No accomodation</i></p><br>
-      <br>
+      <p class="w3-opacity w3-left"><i><b>Note:<b> REGISTRATION IS NON-REFUNDABLE
+      <br>PAYMENT REGISTRATION ONLY WILL NOT GUARANTEE YOUR SLOT
+      <br>*No accomodation</i></p>
       
     </div>
   </div>
