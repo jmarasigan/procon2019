@@ -230,14 +230,15 @@ function sendEmailNotification($to,$status,$transactioncd,$badgename,$comment) {
 		<h1>Mabuhay!</h1><br/>
 		<h2>Dear '.$badgename.',</h2><br/>
 		<p>You have been successfully registered as participant in the upcoming Pilipinas Rotaract Convention 2019 this February 22-24, 2019 in <b>Legaspi Albay.</b></p><br/>
+        <h3>Please show this confirmation email upon arrival at the venue on the day of PROCON.</h3>
         <h3>For more updates, please like the official facebook page of PROCON2019</h3>
         <h3>See you at the City of Fun and Adventure!</h3>
         <br>
         <h2>DIOS MABALOS!</h2>
-		
-		<p align=center>PILIPINAS ROTARACT CONVENTION</p>
-		<p align=center>ROTARY INTERNATIONAL</p>
-		<p align=center>Districts 3770, 3780, 3790, 3800, 3810, 3820, 3830, 3850, 3860, 3870</p>
+        
+        <br>
+		<p align=left>The Organizers</p>
+		<p align=left>PROCON 2019 Legazpi</p>
 		</html>';
 	} else {
 		$message = '
@@ -248,13 +249,11 @@ function sendEmailNotification($to,$status,$transactioncd,$badgename,$comment) {
 		</head>
 		<img src="http://PROCON2019.com/images/letterhead.jpg">
 		<h1>Registration is invalid or unsuccessful.</h1><br/>
-		<p>The <b>PROCON2019</b> committee cannot process your registration because '.$comment.'</p><br/>
-		<p>Please check the necessary informations to be filled and re-register.</p><br/>
-		<p>For Details and assistance, Please contact <b>PROCON2019</b> Registration Helpdesk on this number...
-		09778590788</p>
-		<p align=center>PILIPINAS ROTARACT CONVENTION</p>
-		<p align=center>ROTARY INTERNATIONAL</p>
-		<p align=center>Districts 3770, 3780, 3790, 3800, 3810, 3820, 3830, 3850, 3860, 3870</p>
+		<p>'.$comment.'</p><br/>
+        
+        <br>
+		<p align=left>The Organizers</p>
+		<p align=left>PROCON 2019 Legazpi</p>
 		
 		</html>';
 	}

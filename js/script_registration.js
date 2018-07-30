@@ -4,8 +4,7 @@
 jQuery(function($) {
 	var validation_holder;
 	
-	$("form#register_form input[name='submit']").click(function() {
-	
+	$("form#register_form input[name='register']").click(function() {
 	var validation_holder = 0;
 		
 		var firstname		= $("form#register_form input[name='firstname']").val();
@@ -304,6 +303,7 @@ jQuery(function($) {
 		
 		var assesssment		= $("form#assess_form input[name='assessment']");
 		var comment			= $("form#assess_form input[name='comment']").val();
+		var batch			= $("form#assess_form input[name='batch']").val();
 		
 		
 		
@@ -320,6 +320,12 @@ jQuery(function($) {
 			validation_holder = 1;
 		} else {
 			$("span.val_comment").html("");
+			}
+		if(batch == "" && assessment== "APPROVED") {
+			$("span.val_batch").html("This field is required.").addClass('validate');
+			validation_holder = 1;
+		} else {
+			$("span.val_batch").html("");
 			}
 		
 		

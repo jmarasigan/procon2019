@@ -13,7 +13,7 @@ if(isset($_POST['email'], $_POST['p'])) {
      	echo 'Success: You have been logged in!';
    } else {
       // Login failed
-      header('Location: ./home.php?error=1');
+      header('Location: ./login.php?error=1');
    }
 } else { 
    // The correct POST variables were not sent to this page.

@@ -41,8 +41,7 @@ $result = $mysqli->query($query);
 		echo "<td>TRANS CODE</td>"; 
 		echo "<td>TRANS AMOUNT</td>"; 
 		echo "<td>TRANS DAY</td>"; 
-		echo "<td>STATUS</td>"; 
-		echo "<td>COMMENT</td>";
+		echo "<td>STATUS</td>";
 		echo "<td>APPROVER</td>"; 
 		echo "<td>CONTROL NO</td>";
 	echo "</tr>";
@@ -79,7 +78,6 @@ while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 		"<td>".$row["trnamt"]."</td>".
 		"<td>".$row["trndate"]."</td>".
 		"<td>".$row["regstatus"]."</td>".
-		"<td>".$row["comment"]."</td>".
 		"<td>".$row["approver"]."</td>".
 		"<td>".$row["controlno"]."</td>";
 	echo "</tr>";

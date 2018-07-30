@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Pilipinas Rotaract Convension 2019</title>
+<title>PROCON2019</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -44,20 +44,32 @@ body {font-family: "Lato", sans-serif}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="./images/poster.jpg" style="width:60%">
+    <img src="./images/720x400.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Legaspi Albay</h3>
+      <h3>Legazpi City, Albay</h3>
       <p><b>DIOS MABALOS!</b></p>   
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="./images/cwc2.jpg" style="width:60%">
+    <img src="./images/1550x600_Albay.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
         
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="./images/cwc1.jpg" style="width:60%">
+    <img src="./images/1550x600_leg.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+       
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="./images/1550x600_LYK.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+       
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="./images/1550x600_Oriental.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
        
     </div>
@@ -66,7 +78,7 @@ body {font-family: "Lato", sans-serif}
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">Pilipinas Rotaract Convention 2019</h2>
-    <p class="w3-opacity"><i>Legaspi Albay, February 22-24, 2019</i></p>
+    <p class="w3-opacity"><i>Legazpi City, Albay, February 22-24, 2019</i></p>
    
   </div>
 
@@ -77,9 +89,43 @@ body {font-family: "Lato", sans-serif}
       <p class="w3-opacity w3-center"><i>Limited Slots available. Hurry up!!!</i></p><br>
       <!--document.getElementById('ticketModal').style.display='block'-->
       <p class="w3-opacity w3-center"><?php include('attendancegraph.php'); ?></p>
+      <?php
+			if(isset($_GET['result'])) {
+				if($_GET['result']==1) { 
+				   	echo '<input type=hidden name=flag value=1/>';
+					echo '<h1><p class="w3-panel w3-red">Transaction Code already Exist!</p></h1>';
+				} else if ($_GET['result']==0) {
+					echo '<input type=hidden name=flag value=0/>';
+          echo '<h1><p class="w3-panel w3-green">We have received your registration.</p></h1>';
+          echo '<h2><p class="w3-panel w3-green">Please wait for our confirmation via email within 1-3 working days.</p></h2>';
+				}
+			}
+		?>
 
       <button class="w3-button w3-block w3-green w3-xlarge">Register NOW!</button>
       
+      <?php 
+
+          $query = "select rb.batch,rb.display,rb.amount,rb.qty-IFNULL(r.regcnt,0) as rem from registration_batch rb left join (select batch,count(*) as regcnt from registration where regstatus='APPROVED' group by batch) r on rb.batch=r.batch";
+          $result = $mysqli->query($query);
+          echo "<ul class='w3-ul w3-border w3-white w3-text-grey'>";
+          while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+              
+            echo "<li class='w3-padding'>".$row["display"]."<i> (".$row["amount"].")</i> <span class='w3-tag w3-green w3-margin-left'>".$row["rem"]." slot </span></li>";
+          }
+          echo "<li class='w3-padding'>Rotarian <i>(Php 3,800*)</i><span class='w3-tag w3-green w3-margin-left'>UNLIMITED</span></li>";
+          echo "<li class='w3-padding'>"
+          
+          ?>
+          <?php include('registration_main.php'); ?>
+          <?php
+          echo "</li>";
+          echo "</ul>";
+          ?>
+      
+      
+
+      <!--
       <ul class="w3-ul w3-border w3-white w3-text-grey">
         <li class="w3-padding">Batch 1 <i>(Php 3,000)</i> <span class="w3-tag w3-green w3-margin-left">5 slot</span>
         </li>
@@ -87,11 +133,12 @@ body {font-family: "Lato", sans-serif}
         <li class="w3-padding">Batch 3 <i>(Php 3,500)</i><span class="w3-tag w3-green w3-margin-left">20 slot</span></li>
         <li class="w3-padding">Regular <i>(Php 3,800)</i><span class="w3-tag w3-green w3-margin-left">365 slot</span></li>
         <li class="w3-padding">Rotarian <i>(Php 3,800*)</i><span class="w3-tag w3-green w3-margin-left">UNLIMITED</span></li>
-        <li class="w3-padding"><?php include('registration_main.php'); ?></li>
+        
       </ul>
-
+      -->
       <p class="w3-opacity w3-left"><i><b>Note:<b> REGISTRATION IS NON-REFUNDABLE
-      <br>PAYMENT REGISTRATION ONLY WILL NOT GUARANTEE YOUR SLOT
+      <br>Payment deposit will not secure your slot. To secure your slot, 
+      register online thru procon2019.com immediately after deposit has been made.
       <br>*No accomodation</i></p>
       
     </div>
@@ -101,16 +148,14 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
     <h2 class="w3-wide w3-center">LOCATION</h2>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.441846140784!2d123.736560314482!3d13.134505990749126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a103d11bef603b%3A0x6f1cd8ab6f0d4d0e!2sThe+Oriental+Legazpi!5e0!3m2!1sen!2sph!4v1531410148028" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
-        <h4> The Oriental Hotel Legazpi</h3>
-      <i class="fa fa-map-marker">Taysan Hills Sto. Nino Village, Albay, 4500 Legazpi, Philippines</i>
-      <a href="https://play.google.com/store/apps/details?id=com.innopub.albay.guide"><img src="./images/google-play-badge.png" style="width:30%"></a>
+        <h4> The Oriental Legazpi</h3>
+      <i class="fa fa-map-marker">Taysan Hills Sto. Nino Village, Albay, 4500 Legazpi, Philippines</i> <br>
+      <p class="w3-opacity w3-left">Download Albay App on your Android</p> <a href="https://play.google.com/store/apps/details?id=com.innopub.albay.guide"><img src="./images/google-play-badge.png" style="width:20%"></a>
       </div>
 
       <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-        <video width="100%" height="400px" controls="controls">
-            <source src="./video/90SECONDERVIDEO.mp4" type="video/mp4">
-            Your browser does not support the HTML5 Video element.
-        </video>
+      <iframe width="100%" height="400px"  src="https://www.youtube.com/embed/HE34R_IH7HY"></iframe>
+        
       </div>
 
       
@@ -135,17 +180,17 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Arrival</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Hotel Lobby</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p>placeholder</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p>Anything Comfortable</p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Registration</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Hotel Lobby</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p>placeholder</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p>Anything Comfortable</p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Check-in</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p>placeholder</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p>placeholder</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p>Front Office</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p>Anything Comfortable</p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Leaders' Meeting</p></div>
@@ -158,7 +203,7 @@ body {font-family: "Lato", sans-serif}
           <div class="w3-col s4 w3-white w3-center"><p>District Shirt</p></div>
         </div>
         <div class="w3-row w3-border">
-          <div class="w3-col s4 w3-white w3-left"><p>Welcome Dinner<br>GALA NIGHT (MASQUERADE BALL)<br></p></div>
+          <div class="w3-col s4 w3-white w3-left"><p>Welcome Dinner<br>Gala Night (Masquerade Ball)<br></p></div>
           <div class="w3-col s4 w3-white w3-center"><p><br>Grand Ballroom<br> <br></p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Mask (Required) <br>Men: Suit and Slacks<br>Women: Ball/Long Gown</p></div>
         </div>
@@ -173,8 +218,8 @@ body {font-family: "Lato", sans-serif}
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Coastal Clean-up <br> Fun Run <br> MOB Dance</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p><br> Legaspi Boulevard <br> <br> </p></div>
-          <div class="w3-col s4 w3-white w3-center"><p><br> PROCON T-SHIRT <br> <br> </p></div>
+          <div class="w3-col s4 w3-white w3-center"><p><br> Legazpi Boulevard <br> <br> </p></div>
+          <div class="w3-col s4 w3-white w3-center"><p><br> PROCON T-shirt <br> <br> </p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Breakfast <br> Pleanary 1 <br> Plenary 2 <br> District Report <br> Lunch <br> Skills Acquisition <br> PM Snack <br> </p></div>
@@ -183,8 +228,8 @@ body {font-family: "Lato", sans-serif}
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Dinner <br> District Presentation <br> Fellowship Night (Neon Party)</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p><br>Grand Ballroom <br> <br></p></div>
-          <div class="w3-col s4 w3-white w3-center"><p><br>White top and Jeans<br> <br></p></div>
+          <div class="w3-col s4 w3-white w3-center"><p><br>Grand Ballroom <br> <br> <br></p></div>
+          <div class="w3-col s4 w3-white w3-center"><p><br>White top and Jeans<br> <br> <br></p></div>
         </div>
       </div>
 
@@ -198,17 +243,17 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Breakfast <br> Adjournment</p></div>
           <div class="w3-col s4 w3-white w3-center"><p><br> Grand Ballroom <br> </p></div>
-          <div class="w3-col s4 w3-white w3-center"><p><br> Anything Confortable <br> </p></div>
+          <div class="w3-col s4 w3-white w3-center"><p><br> Anything Comfortable <br> </p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Free Time</p></div>
           <div class="w3-col s4 w3-white w3-center"><p> <br></p></div>
-          <div class="w3-col s4 w3-white w3-center"><p> Anything Confortable</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p> Anything Comfortable</p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Check-out</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Hotel Lobby</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p> Anything Confortable</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p> Anything Comfortable</p></div>
         </div>
       </div>
       </div>
@@ -241,8 +286,13 @@ body {font-family: "Lato", sans-serif}
         <i class="fa fa-phone" style="width:30px"></i> Mobile: 09953476093<br>
       </div>
       <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker" style="width:30px"></i> PATRICK JOSEPH K. DONDONILLA<br>
-        <i class="fa fa-phone" style="width:30px"></i> Mobile: 09065633280<br>
+        <i class="fa fa-map-marker" style="width:30px"></i> Patrick Joseph K. Dondonilla<br>
+        <i class="fa fa-phone" style="width:30px"></i> Globe: 09278677104<br>
+        <i class="fa fa-phone" style="width:30px"></i> Smart: 09296871466<br>
+      </div>
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker" style="width:30px"></i> Christian A. Castillo<br>
+        <i class="fa fa-phone" style="width:30px"></i> Mobile: 09778590788<br>
       </div>
       
     </div>
@@ -302,7 +352,7 @@ function carousel() {
     myIndex++;
     if (myIndex > x.length) {myIndex = 1}    
     x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 80000);    
+    setTimeout(carousel, 8000);    
 }
 
 // Used to toggle the menu on small screens when clicking on the menu button
@@ -341,6 +391,10 @@ function plusDivs(n) {
 
 
 </script>
+
+
+<?php include('./chat/index.html'); ?></p>
+
 
 </body>
 </html>
