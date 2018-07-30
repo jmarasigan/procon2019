@@ -186,7 +186,6 @@ if ($stmt = $mysqli->prepare("SELECT username FROM members WHERE username = ? an
 
 function assess($assessment, $comment,$transactioncd,$email,$batch, $mysqli) {
    // Using prepared Statements means that SQL injection is not possible. 
-   //echo 'Transaction#: '+$transactioncd;
    //echo '\n isTransactionExist: '+isTransactionExist($transactioncd,$mysqli);
 	if (isTransactionExist($transactioncd,$mysqli)) {
 		$controlno = substr($transactioncd,1,3);
@@ -258,11 +257,12 @@ function sendEmailNotification($to,$status,$transactioncd,$badgename,$comment) {
 		</html>';
 	}
 	
-	$from = "admin@procon2019.com";
+	$from = 'From: organizer@procon2019.com';
 	
-	$headers = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-	$headers .= "Pilipinas Rotaract Convention 2019";
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= $from . "\r\n";
+	//$headers .= "Pilipinas Rotaract Convention 2019";
 	
 	mail($to,$subject,$message,"$headers");
 }

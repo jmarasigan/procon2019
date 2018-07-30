@@ -7,8 +7,8 @@ $comment = $_POST['comment'];
 $email = $_POST['email'];
 $badgename = $_POST['badgename'];
 $approver= $_SESSION['email'];
-$batch= $_POST['batch'];
-
+$batch = $_POST['batch'];
+echo "BATCH: ".$batch;
 	if(assess($assessment, $comment, $transactioncd,$approver,$batch, $mysqli)){
 		echo "PARTICIPANT WAS ASSESSED SUCCUSSFULY";
 		echo "<br/>";	

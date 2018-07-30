@@ -179,22 +179,19 @@ $clubname,$sponsorclub,$allergies,$diet,$medicalcond,$specialreq,$others,$foodty
    <span class="val_assessment"></span></p>
    <p>Comment <input type="text" size="100" name="comment" id="comment"/>
    <span class="val_comment"></span></p>
-   <p>Batch Category
-	<select name="batch" id="batch">
-				<option value=""></option>
-				<option value="BATCH1">BATCH1</option>
-				<option value="BATCH2">BATCH2</option>
-				<option value="BATCH3">BATCH3</option>
-				<option value="INTL">INTL-DELIGATE</option>
-				<option value="REGULAR">REGULAR</option>
-				<option value="ROTARIAN">ROTARIAN</option>
-		</select>
+   <p>Batch Category <br>
+   <input type="radio" value="BATCH1" name="batch" />BATCH1<br>
+   <input type="radio" value="BATCH2" name="batch" />BATCH2<br>
+   <input type="radio" value="BATCH3" name="batch" />BATCH3<br>
+   <input type="radio" value="INTL" name="batch" />INTL<br>
+   <input type="radio" value="REGULAR" name="batch" />REGULAR<br>
+   <input type="radio" value="ROTARIAN" name="batch" />ROTARIAN
+		<span class="val_batch"></span>
 	</p>
-	<span class="val_batch"></span></p>
+	
 
    <input type="hidden" name="transactioncd" value="<?php echo $transactioncd?>"/>
    <input type="hidden" name="email" value="<?php echo $email?>"/>
-   <input type="hidden" name="batch"/>
    <input type="hidden" name="badgename" value="<?php echo $badgename?>"/>
    <input class="button" name="submit" type="submit" value="save"  />
 </form>

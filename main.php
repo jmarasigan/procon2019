@@ -154,7 +154,7 @@ body {font-family: "Lato", sans-serif}
       </div>
 
       <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <iframe width="100%" height="400px"  src="https://www.youtube.com/embed/HE34R_IH7HY"></iframe>
+      <iframe width="100%" height="400px"  src="https://www.youtube.com/embed/HE34R_IH7HY?playlist=UCYzcP0fKp4&loop=1"></iframe>
         
       </div>
 
