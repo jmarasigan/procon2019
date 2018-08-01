@@ -493,12 +493,12 @@ span.validate  {
 		<p> <label for="phoneno">Phone No.</label> <input name="phoneno" type="text" /> <span class="val_phoneno"></span> </p>
 		
 		<h2 class="free_account">Club Information</h2>
-		<p> <label for="type">Type</label>
-			<input name="type" type="radio" value="ROTARIAN" /> ROTARIAN 
-			<input name="type" type="radio" value="ROTARACT" /> ROTARACT 
-			<input name="type" type="radio" value="INTERACT" /> INTERACT 
-			<input name="type" type="radio" value="ALUMNI" /> ROTARACT ALUMNI 
-			<input name="type" type="radio" value="ROTEX" /> ROTEX 
+		<p> <label for="type">Type</label> <br>
+			<input name="type" type="radio" value="ROTARIAN" /> ROTARIAN <br>
+			<input name="type" type="radio" value="ROTARACT" /> ROTARACT <br>
+			<input name="type" type="radio" value="INTERACT" /> INTERACT <br>
+			<input name="type" type="radio" value="ALUMNI" /> ROTARACT ALUMNI <br>
+			<input name="type" type="radio" value="ROTEX" /> ROTEX <br>
 			<input name="type" type="radio" value="GUEST" /> GUEST
 			<span class="val_type"></span> </p>
 		<p> <label for="district">District</label> 
@@ -532,13 +532,13 @@ span.validate  {
 		<p> <label for="cont_rela">Relation</label> <input name="cont_rela" type="text" /> <span class="val_cont_rela"></span> </p>
 		<p> <label for="cont_email">E-Mail</label> <input name="cont_email" type="text" /> <span class="val_cont_email"></span> </p>
 		<p> <label for="cont_no">Contact No.</label> <input name="cont_no" type="text" /> <span class="val_cont_no"></span> </p>
-		<p> <label for="tshirt">T-Shirt</label>
-			<input name="tshirt" type="radio" value="XS" /> XS
-			<input name="tshirt" type="radio" value="S" /> S 
-			<input name="tshirt" type="radio" value="M" /> M 
-			<input name="tshirt" type="radio" value="L" /> L 
-			<input name="tshirt" type="radio" value="XL" /> XL
-			<input name="tshirt" type="radio" value="XXL" /> XXL
+		<p> <label for="tshirt">T-Shirt</label><br>
+			<input name="tshirt" type="radio" value="XS" /> XS <br>
+			<input name="tshirt" type="radio" value="S" /> S <br>
+			<input name="tshirt" type="radio" value="M" /> M <br>
+			<input name="tshirt" type="radio" value="L" /> L <br>
+			<input name="tshirt" type="radio" value="XL" /> XL<br>
+			<input name="tshirt" type="radio" value="XXL" /> XXL<br>
 			<input name="tshirt" type="radio" value="XXXL" /> XXXL
 			<span class="val_tshirt"></span> </p>
 			

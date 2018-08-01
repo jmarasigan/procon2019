@@ -266,4 +266,6 @@ function sendEmailNotification($to,$status,$transactioncd,$badgename,$comment) {
 	
 	mail($to,$subject,$message,"$headers");
 }
+
+
 ?>

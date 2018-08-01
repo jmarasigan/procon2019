@@ -36,7 +36,6 @@ if(array_key_exists('register', $_POST)) {
 	$trncd			= trim($_POST['trncd']);
 	$trnamt			= trim($_POST['trnamt']);
 	$trndate		= $_POST['tyear'].'-'.$_POST['tmonth'].'-'.$_POST['tday'];
-	$upload_image	= $_FILES['myimage']['name'];
 	
 	//field registration
 	$ret=register($firstname,$middlename,$lastname,$badgename,$birthday,$positionheld,$gender,$homeaddres,$corpaddress,$country,$email,$mobileno,$phoneno,$type,$district,
@@ -53,24 +52,30 @@ if(array_key_exists('register', $_POST)) {
 		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 		// Valid file extensions
-		$extensions_arr = array("jpg","jpeg","png","gif");
+		$extensions_arr = array("jpg","jpeg","png");
 
 		// Check extension
 		if( in_array($imageFileType,$extensions_arr) ){
 		
-		// Convert to base64 
-		$image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']) );
-		$image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
-		// Insert record
-		$query = "insert into images(trncd,image) values($trncd,'".$image."')";
-		mysqli_query($mysqli,$query);
-		
-		// Upload file
-		//move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-	   
-		}
+			// Convert to base64 
+			$image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']) );
+
+			$image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+			// Insert record
+			$query = "insert into images(trncd,image) values('".$trncd."','".$image."')";
+			mysqli_query($mysqli,$query);
+			
+			// Upload file
+			move_uploaded_file($_FILES["file"]["tmp_name"],$target_file);
+
+			if (!isset($image_base64)) {
+				$query1 = "update images set image='".$target_file."' where trncd='".$trncd."'";
+				mysqli_query($mysqli,$query1);
+			}
+			
 		
 	   }
+	}
 
 	if($ret == true) {
 		header('Location: ./main.php?result=0#registration');
@@ -80,4 +85,5 @@ if(array_key_exists('register', $_POST)) {
 } else {
 	header('Location: ./registration.php');
 }
+
 ?>
