@@ -109,6 +109,9 @@ body {font-family: "Lato", sans-serif}
           $query = "select rb.batch,rb.display,rb.amount,rb.qty-IFNULL(r.regcnt,0) as rem from registration_batch rb left join (select batch,count(*) as regcnt from registration where regstatus='APPROVED' group by batch) r on rb.batch=r.batch";
           $result = $mysqli->query($query);
           echo "<ul class='w3-ul w3-border w3-white w3-text-grey'>";
+          echo "<li class='w3-padding'>Batch 1 <i>(Php 3,000)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
+          echo "<li class='w3-padding'>Batch 2 <i>(Php 3,200)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
+          
           while($row = $result->fetch_array(MYSQLI_ASSOC)) {
               
             echo "<li class='w3-padding'>".$row["display"]."<i> (".$row["amount"].")</i> <span class='w3-tag w3-green w3-margin-left'>".$row["rem"]." slot </span></li>";
@@ -188,11 +191,6 @@ body {font-family: "Lato", sans-serif}
           <div class="w3-col s4 w3-white w3-center"><p>Anything Comfortable</p></div>
         </div>
         <div class="w3-row w3-border">
-          <div class="w3-col s4 w3-white w3-left"><p>Check-in</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p>Front Office</p></div>
-          <div class="w3-col s4 w3-white w3-center"><p>Anything Comfortable</p></div>
-        </div>
-        <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Leaders' Meeting</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Manila Boardroom</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Rotaract Shirt</p></div>
@@ -201,6 +199,11 @@ body {font-family: "Lato", sans-serif}
           <div class="w3-col s4 w3-white w3-left"><p>Rotaract Festival</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>Ante Hall</p></div>
           <div class="w3-col s4 w3-white w3-center"><p>District Shirt</p></div>
+        </div>
+        <div class="w3-row w3-border">
+          <div class="w3-col s4 w3-white w3-left"><p>Check-in</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p>Front Office</p></div>
+          <div class="w3-col s4 w3-white w3-center"><p>Anything Comfortable</p></div>
         </div>
         <div class="w3-row w3-border">
           <div class="w3-col s4 w3-white w3-left"><p>Welcome Dinner<br>Gala Night (Masquerade Ball)<br></p></div>
