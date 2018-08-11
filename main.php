@@ -111,6 +111,7 @@ body {font-family: "Lato", sans-serif}
           echo "<ul class='w3-ul w3-border w3-white w3-text-grey'>";
           echo "<li class='w3-padding'>Batch 1 <i>(Php 3,000)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
           echo "<li class='w3-padding'>Batch 2 <i>(Php 3,200)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
+          echo "<li class='w3-padding'>Batch 3 <i>(Php 3,500)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
           
           while($row = $result->fetch_array(MYSQLI_ASSOC)) {
               
