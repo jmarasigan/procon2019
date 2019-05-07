@@ -1,0 +1,20 @@
+<!-- The Registration Section -->
+  <div class="w3-black" id="registration">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+      <h2 class="w3-wide w3-center">REGISTRATION</h2>
+      <h2 class="w3-wide w3-center">Registration is already closed. See you in Legazpi.</h2>
+            
+    </div>
+  </div>
+
+
+  SELECT * FROM `registration` WHERE mobileno='09992295992';
+
+
+update registration set district='3810' where mobileno='09992295992';
+
+update registration set district='3830' where mobileno='09179204881';
+
+update registration set district='3850' where mobileno='09154853320';
+
+update registration set district='3860' where mobileno='09471807040';

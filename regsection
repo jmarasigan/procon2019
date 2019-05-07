@@ -1,0 +1,64 @@
+<!-- The Registration Section -->
+  <div class="w3-black" id="registration">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+      <h2 class="w3-wide w3-center">REGISTRATION</h2>
+      <p class="w3-opacity w3-center"><i>Limited Slots available. Hurry up!!!</i></p><br>
+      <!--document.getElementById('ticketModal').style.display='block'-->
+      <!--comment 20181130<p class="w3-opacity w3-center"><?php include('attendancegraph.php'); ?></p>-->
+      <?php
+			if(isset($_GET['result'])) {
+				if($_GET['result']==1) { 
+				   	echo '<input type=hidden name=flag value=1/>';
+					echo '<h1><p class="w3-panel w3-red">Transaction Code already Exist!</p></h1>';
+				} else if ($_GET['result']==0) {
+					echo '<input type=hidden name=flag value=0/>';
+          echo '<h1><p class="w3-panel w3-green">We have received your registration.</p></h1>';
+          echo '<h2><p class="w3-panel w3-green">Please wait for our confirmation via email within 1-3 working days.</p></h2>';
+				}
+			}
+		?>
+
+      <button class="w3-button w3-block w3-green w3-xlarge">Register NOW!</button>
+      
+      <?php 
+
+          $query = "select rb.batch,rb.display,rb.amount,rb.qty-IFNULL(r.regcnt,0) as rem from registration_batch rb left join (select batch,count(*) as regcnt from registration where regstatus='APPROVED' group by batch) r on rb.batch=r.batch";
+          $result = $mysqli->query($query);
+          echo "<ul class='w3-ul w3-border w3-white w3-text-grey'>";
+          echo "<li class='w3-padding'>Batch 1 <i>(Php 3,000)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
+          echo "<li class='w3-padding'>Batch 2 <i>(Php 3,200)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
+          echo "<li class='w3-padding'>Batch 3 <i>(Php 3,500)</i><span class='w3-tag w3-red w3-margin-left'>Sold Out</span></li>";
+          
+          while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+              
+            echo "<li class='w3-padding'>".$row["display"]."<i> (".$row["amount"].")</i> <span class='w3-tag w3-green w3-margin-left'>".$row["rem"]." slot </span></li>";
+          }
+          echo "<li class='w3-padding'>Rotarian <i>(Php 3,800*)</i><span class='w3-tag w3-green w3-margin-left'>UNLIMITED</span></li>";
+          echo "<li class='w3-padding'>"
+          
+          ?>
+          <?php include('registration_main.php'); ?>
+          <?php
+          echo "</li>";
+          echo "</ul>";
+          ?>
+      
+
+      <!--
+      <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding">Batch 1 <i>(Php 3,000)</i> <span class="w3-tag w3-green w3-margin-left">5 slot</span>
+        </li>
+        <li class="w3-padding">Batch 2 <i>(Php 3,300)</i><span class="w3-tag w3-green w3-margin-left">10 slot</span></li>
+        <li class="w3-padding">Batch 3 <i>(Php 3,500)</i><span class="w3-tag w3-green w3-margin-left">20 slot</span></li>
+        <li class="w3-padding">Regular <i>(Php 3,800)</i><span class="w3-tag w3-green w3-margin-left">365 slot</span></li>
+        <li class="w3-padding">Rotarian <i>(Php 3,800*)</i><span class="w3-tag w3-green w3-margin-left">UNLIMITED</span></li>
+        
+      </ul>
+      -->
+      <p class="w3-opacity w3-left"><i><b>Note:<b> REGISTRATION IS NON-REFUNDABLE
+      <br>Payment deposit will not secure your slot. To secure your slot, 
+      register online thru procon2019.com immediately after deposit has been made.
+      <br>*No accomodation</i></p>
+      
+    </div>
+  </div>
